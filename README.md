@@ -36,7 +36,7 @@ Demo分别展示了aar中的各项功能使用和调用方法。<br>
 
 ## 2.1 初始化操作<br>
 新建InitLibCore类的对象，传入上下文，并调用该对象的init方法进行初始化。<br>
-
+ 
     val initLibCore = InitLibCore()
 
     initLibCore.init(context)
