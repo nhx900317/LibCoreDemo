@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">LibCoreDemo</string>
+    <string name="file_manager">文件查看</string>
+    <string name="music">音乐播放</string>
+    <string name="video">视频播放</string>
+    <string name="photo">图片查看</string>
+    <string name="animation">动画播放</string>
+    <string name="word">word查看</string>
+    <string name="excel">excel查看</string>
+    <string name="ppt">ppt查看</string>
+    <string name="pdf">pdf查看</string>
+    <string name="web">网页查看</string>
+    <string name="get_location">定位功能</string>
+    <string name="stop_location">停止定位</string>
+    <string name="map">地图查看</string>
+    <string name="weather">天气查询</string>
+    <string name="input_city">输入要查询的城市或者进行定位操作</string>
+    <string name="doodle">涂鸦窗口</string>
+    <string name="banner">图片轮播</string>
+</resources>

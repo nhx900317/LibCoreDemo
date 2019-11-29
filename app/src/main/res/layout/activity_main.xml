@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    tools:context=".ui.MainActivity">
+
+    <TextView
+        android:id="@+id/info_show"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:gravity="center_vertical"
+        android:text="@string/app_name" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/info_show">
+
+        <RelativeLayout
+            android:id="@+id/button_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:focusable="true"
+            android:focusableInTouchMode="true">
+
+            <Button
+                android:id="@+id/file_manager_bt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:text="@string/file_manager" />
+
+            <Button
+                android:id="@+id/music_bt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/file_manager_bt"
+                android:layout_margin="8dp"
+                android:text="@string/music" />
+
+            <Button
+                android:id="@+id/video_bt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/music_bt"
+                android:layout_margin="8dp"
+                android:text="@string/video" />
+
+            <Button
+                android:id="@+id/photo_bt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/video_bt"
+                android:layout_margin="8dp"
+                android:text="@string/photo" />
+
+            <Button
+                android:id="@+id/animation_play_bt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/photo_bt"
+                android:layout_margin="8dp"
+                android:text="@string/animation" />
+
+            <Button
+                android:id="@+id/word_bt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/animation_play_bt"
+                android:layout_margin="8dp"
+                android:text="@string/word" />
+
+            <Button
+                android:id="@+id/excel_bt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/word_bt"
+                android:layout_margin="8dp"
+                android:text="@string/excel" />
+
+            <Button
+                android:id="@+id/ppt_bt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/excel_bt"
+                android:layout_margin="8dp"
+                android:text="@string/ppt" />
+
+            <Button
+                android:id="@+id/pdf_bt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/ppt_bt"
+                android:layout_margin="8dp"
+                android:text="@string/pdf" />
+
+            <Button
+                android:id="@+id/web_bt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/pdf_bt"
+                android:layout_margin="8dp"
+                android:text="@string/web" />
+
+            <Button
+                android:id="@+id/get_location_bt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/web_bt"
+                android:layout_margin="8dp"
+                android:text="@string/get_location" />
+
+            <Button
+                android:id="@+id/stop_location_bt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/get_location_bt"
+                android:layout_margin="8dp"
+                android:text="@string/stop_location" />
+
+            <Button
+                android:id="@+id/map_bt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/stop_location_bt"
+                android:layout_margin="8dp"
+                android:text="@string/map" />
+
+            <EditText
+                android:id="@+id/weather_et"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/map_bt"
+                android:layout_margin="8dp"
+                android:hint="@string/input_city" />
+
+            <Button
+                android:id="@+id/weather_bt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/weather_et"
+                android:layout_margin="8dp"
+                android:text="@string/weather" />
+
+            <Button
+                android:id="@+id/doodle_bt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/weather_bt"
+                android:layout_margin="8dp"
+                android:text="@string/doodle" />
+
+            <Button
+                android:id="@+id/banner_bt"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/doodle_bt"
+                android:layout_margin="8dp"
+                android:text="@string/banner" />
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+
+</RelativeLayout>
