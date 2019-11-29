@@ -227,13 +227,14 @@ isAutoPlay|Boolean|否|是否自动轮播，不传入默认true，即自动轮�
 定位功能使用高德定位。<br>
 注：在使用定位功能前，请确保程序具有网络访问和位置访问的权限。<br>
 ## 4.1 账号注册<br>
-使用在高德定位官方网站(https://lbs.amap.com)注册并填写信息并完成注册，会得到一个appkey<br>
+使用在高德定位官方网站(https://lbs.amap.com)，注册并填写信息并完成注册，会得到一个appkey<br>
 在Manifest文件<application>节点加入如下配置：<br>
-        <!-- auto nav location-->
-        <meta-data
+    <!-- auto nav location-->
+ 
+    <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="在此处填写你的appkey" />
-        <!-- auto nav location—>
+    <!-- auto nav location—>
 
 ## 4.2 使用方法<br>
 在完成注册之后，在程序中使用方法如下：<br>
