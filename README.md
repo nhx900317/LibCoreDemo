@@ -229,8 +229,8 @@ isAutoPlay|Boolean|否|是否自动轮播，不传入默认true，即自动轮�
 ## 4.1 账号注册<br>
 使用在高德定位官方网站(https://lbs.amap.com )注册并填写信息并完成注册，会得到一个appkey<br>
 在Manifest文件<application>节点加入如下配置：<br>
-    <!-- auto nav location-->
  
+    <!-- auto nav location-->
     <meta-data
             android:name="com.amap.api.v2.apikey"
             android:value="在此处填写你的appkey" />
