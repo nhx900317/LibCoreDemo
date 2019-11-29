@@ -2,7 +2,7 @@
 
 最近将很多之前做的功能封装成了一个aar库，这样使用起来比较方便，主要封装了UI页面和定位，天气等功能，不定期更新，喜欢请支持一下:)
 
-UI页面总体包含音乐播放，视频播放，图片查看，word文档查看，Excel表格查看，PPT幻灯片查看，PDF文档查看，网页查看，地图查看，涂鸦窗口和图片轮播窗口。具体使用方法请见下文。
+UI页面总体包含音乐播放，视频播放，图片查看，word文档查看，Excel表格查看，PPT幻灯片查看，PDF文档查看，网页查看，地图查看，涂鸦窗口和图片轮播窗口。功能主要使用intent的putextra方法传入参数，启动相应的Activity，具体使用方法请见Demo。
 
 目前发现的问题：在MyMapActivity，有些手机内核不同，无法使用，目前发现华为手机部分部分机型使用有问题，正在完善中。
 
@@ -77,3 +77,22 @@ Demo分别展示了aar中的各项功能使用和调用方法。
 获取屏幕分辨率的方法：ScreenResolution.getResolution(mContext:Context)
 
 设定屏幕分辨率的方法：ScreenResolution.setResolution(width:Int, height:Int)
+
+# 页面功能
+
+本章主要对aar包里的UI页面功能进行介绍，并将使用方法和参数进行详细说明。aar包总体包含音乐播放，视频播放，图片查看，word文档查看，Excel表格查看，PPT幻灯片查看，PDF文档查看，网页查看，地图查看，涂鸦窗口和图片轮播窗口。具体见下表：
+
+Activity	         页面说明	            支持文件的格式
+MyBaseActivity	     基础Activity	         下面所有的Activity都继承此Activity，主要设置全屏和常量显示等统一风格
+MyMusicActivity	     音乐播放的Activity	   mp3, amr
+MyVideoActivity	     视频播放的Activity	   mp4, wmv
+MyPhotoActivity	     图片查看的Activity	   jpg, png, bmp
+MyAnimationActivity	 动画播放的Activity	   gif
+MyWordActivity	     word查看的Activity	doc, docx
+MyExcelActivity	     Excel查看的Activity	xls
+MyPPTActivity	     PPT查看的Activity	    ppt, pptx
+MyPDFActivity	     PDF查看的Activity	    pdf
+MyExplorerActivity	 网页查看的Activity	   htm, html, 网址
+MyMapActivity	     地图查看的Activity	   无
+MyDoodleActivity	 涂鸦窗口的Activity	   无
+MyBannerActivity	 图片轮播的Activity	   png, jpg
