@@ -201,7 +201,7 @@ title|String|否|标题显示内容，不传则不显示
 latitude|Double|否|纬度，不传入默认41.8
 longitude|Double|否|经度，不传入默认123.38
 
-## 3.11 涂鸦窗口<br>
+## 3.12 涂鸦窗口<br>
 涂鸦窗口主要提供了一个涂鸦页面，并支持将涂鸦保存为png图片。<br>
 具体使用方法：<br>
 在安卓代码中使用intent启动MyDoodleActivity，通过intent.putExtra()方法，传入的参数如下：<br>
@@ -209,3 +209,16 @@ longitude|Double|否|经度，不传入默认123.38
 参数名称|参数类型 |是否必须|参数说明
 -------|-------|-------|-------
 fileName|String|是|涂鸦保存时的文件路径和文件名称<br>支持保存为png格式的图片<br>所以该字符串务必以.png结尾<br>例如“/sdcard/doodle.png”
+
+## 3.13 图片轮播<br>
+图片轮播窗口主要提供了一个图片轮播页面，设置图片的目录，程序自动查找目录下的图片进行轮播，支持格式为png和jpg，并可以自定义切换效果和切换时间。
+具体使用方法：
+在安卓代码中使用intent启动MyBannerActivity，通过intent.putExtra()方法，传入的参数如下：
+
+参数名称|参数类型 |是否必须|参数说明
+-------|-------|-------|-------
+filePath|String|是|图片路径，请传入文件夹目录
+delayTime|Int|否|切换图片时间间隔，不传默认为5000ms
+bannerAnimation|Int|否|切换图片动画效果，不传入或者传入值有误时为1<br>1：FlipHorizontal<br>2：FlipVertical<br>3：Stack<br>4：CubeIn<br>5：CubeOut<br>6：Accordion<br>7：RotateUp<br>8：RotateDown<br>切换图片动画的具体效果请实际查看。
+bannerStyle|Int|否|banner显示风格，不传入或者传入值有误时为1<br>0：不显示指示器和标题<br>1：显示圆形指示器<br>2：显示数字指示器
+isAutoPlay|Boolean|否|是否自动轮播，不传入默认true，即自动轮播
