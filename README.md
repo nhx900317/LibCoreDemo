@@ -54,7 +54,7 @@ Demo分别展示了aar中的各项功能使用和调用方法。<br>
 
 Activity            |页面说明                |支持文件的格式
 --------------------|----------------------|------------------------------------------------------------
-MyBaseActivity	    | Activity	           |下面所有的Activity都继承此Activity，主要设置全屏和常量显示等统一风格
+MyBaseActivity	    | Activity	           |下面所有的Activity都继承此Activity<br>主要设置全屏和常量显示等统一风格
 MyMusicActivity	    |音乐播放的Activity	    |mp3, amr
 MyVideoActivity	    |视频播放的Activity	    |mp4, wmv
 MyPhotoActivity	    |图片查看的Activity	    |jpg, png, bmp
