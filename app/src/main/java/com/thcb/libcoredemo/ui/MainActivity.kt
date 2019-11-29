@@ -179,7 +179,7 @@ class MainActivity : MyBaseActivity(), LocationAb.LocationCallback, WeatherAb.We
     @SuppressLint("SetTextI18n")
     override fun onLocationFound(locationBean: LocationBean) {
         LogDebug.d(TAG, "onLocationFound:${locationBean.address}")
-        tvInfoShow!!.text = locationBean.address
+        tvInfoShow!!.text = locationBean.address + locationBean.bearing
         mCity = locationBean.city
     }
 
