@@ -72,6 +72,7 @@ MyBannerActivity	|图片轮播的Activity	    |png, jpg
 在aar中封装一个FileHolder类，用于进行文件查看功能，支持上表3-1中的文件类型的查看操作，此方法会根据文件路径中的文件名字自动判断并选择打开方式，建议在文件预览时使用此方法打开文件。<br>
 具体使用方法为：<br>
 FileHolder.openFile(mContext:Context, filePath:String)<br>
+
 参数名称             |参数类型                |参数说明
 --------------------|----------------------|---------------------------------------------
 mContext     	    | Context	           |上下文
