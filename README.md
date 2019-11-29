@@ -346,7 +346,7 @@ pWeatherCallback|天气信息回调，WeatherCallback
         
 注：如不使用Activity实现接口方式，mWeather.getWeather(this)中的this需使用回调WeatherAb.WeatherCallback代替。<br>
 
-## 5.1 回调方法<br>
+## 5.2 回调方法<br>
 ### 5.2.1  开始获取天气回调<br>
 开始获取天气信息时回调<br>
 fun onStartWeather(msg:String)<br>
