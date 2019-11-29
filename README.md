@@ -52,21 +52,18 @@ Demo分别展示了aar中的各项功能使用和调用方法。<br>
 本章主要对aar包里的UI页面功能进行介绍，并将使用方法和参数进行详细说明。aar包总体包含音乐播放，视频播放，图片查看，word文档查看，Excel表格查看，PPT幻灯片查看，PDF文档查看，网页查看，地图查看，涂鸦窗口和图片轮播窗口。具体见下表：<br>
 
 
-Activity            |                      |支持文件的格式
+Activity            |页面说明                |支持文件的格式
 --------------------|----------------------|------------------------------------------------------------
 MyBaseActivity	    | Activity	           |下面所有的Activity都继承此Activity，主要设置全屏和常量显示等统一风格
-
-Activity	         页面说明	            支持文件的格式
-MyBaseActivity	     基础Activity	         下面所有的Activity都继承此Activity，主要设置全屏和常量显示等统一风格
-MyMusicActivity	     音乐播放的Activity	   mp3, amr
-MyVideoActivity	     视频播放的Activity	   mp4, wmv
-MyPhotoActivity	     图片查看的Activity	   jpg, png, bmp
-MyAnimationActivity	 动画播放的Activity	   gif
-MyWordActivity	     word查看的Activity	doc, docx
-MyExcelActivity	     Excel查看的Activity	xls
-MyPPTActivity	     PPT查看的Activity	    ppt, pptx
-MyPDFActivity	     PDF查看的Activity	    pdf
-MyExplorerActivity	 网页查看的Activity	   htm, html, 网址
-MyMapActivity	     地图查看的Activity	   无
-MyDoodleActivity	 涂鸦窗口的Activity	   无
-MyBannerActivity	 图片轮播的Activity	   png, jpg
+MyMusicActivity	    |音乐播放的Activity	    |mp3, amr
+MyVideoActivity	    |视频播放的Activity	    |mp4, wmv
+MyPhotoActivity	    |图片查看的Activity	    |jpg, png, bmp
+MyAnimationActivity	|动画播放的Activity	    |gif
+MyWordActivity	    |word查看的Activity	 |doc, docx
+MyExcelActivity	    |Excel查看的Activity	 |xls
+MyPPTActivity	    |PPT查看的Activity	     |ppt, pptx
+MyPDFActivity	    |PDF查看的Activity	     |pdf
+MyExplorerActivity	|网页查看的Activity	    |htm, html, 网址
+MyMapActivity	    |地图查看的Activity	    |无
+MyDoodleActivity	|涂鸦窗口的Activity	    |无
+MyBannerActivity	|图片轮播的Activity	    |png, jpg
