@@ -85,7 +85,7 @@ filePath     	    | String	           |文件路径+文件名，例如“/sdcard
 
 参数名称|参数类型 |是否必须|参数说明
 -------|-------|-------|-------
-filePath|String|是|音乐文件的路径，可以传入一个文件夹路径，<br>此时播放此路径下的所有MP3音乐文件，<br>也可传入一个文件的路径，此时只播放此文件
+filePath|String|是|音乐文件的路径，可以传入一个文件夹路径<br>此时播放此路径下的所有MP3音乐文件<br>也可传入一个文件的路径，此时只播放此文件
 playListWidth|Int|否|播放列表宽度，不传默认为屏幕宽度的1/3
 
 注1：在表传入参数是否必须一列，如果标注为是，表明此参数必须传入，下同。<br>
@@ -129,5 +129,29 @@ word文档查看主要提供了一个word浏览页面，支持双指缩放和翻
 -------|-------|-------|-------
 filePath|String|是|word文件路径和名称，不支持传入文件夹
 
+## 3.7 excel查看<br>
+Excel文档查看主要提供了一个Excel浏览页面。<br>
+注1：使用此功能需要在程序中添加locktableview-release.aar，详见1.2节；<br>
+注2：如果Excel中存在单元格合并的情况，显示行列可能会不对应。<br>
+具体使用方法：<br>
+在安卓代码中使用intent启动MyExcelActivity，通过intent.putExtra()方法，传入的参数如下：<br>
 
+参数名称|参数类型 |是否必须|参数说明
+-------|-------|-------|-------
+filePath|String|是|excel文件路径和名称，不支持传入文件夹
+title|String|否|title显示，在页面的标题栏显示
+tableParam|TableParam|否|表格相关参数配置，具体见下表<br>不传此对象时，全部使用默认值<br>传入此对象时，如过只对其中部分参数赋值<br>程序会判断并使用赋值的参数，没赋值的参数会使用默认值
 
+其中TableParam为表格相关的参数配置，可以设置表格行高，行宽和字号等参数，具体见下表。
+
+参数名称|参数类型|默认值|参数说明
+:-------|:-------|:-------|:-------
+isLockFirstColumn|Boolean|false|是否锁定第一列
+isLockFirstRow|Boolean|true|是否锁定第一行
+iMaxColumnWidth|Int|200|列最大宽度
+iMinColumnWidth|Int|60|列最小宽度
+iMaxRowHeight|Int|60|行最大高度
+iMinRowHeight|Int|20|行最小高度
+iCellPadding|Int|15|单元格内边距dp
+iTextViewSize|Int|16|单元格字体大小
+sNullableString|String|“”|空值替换值
