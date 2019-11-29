@@ -8,7 +8,7 @@ UI页面总体包含音乐播放，视频播放，图片查看，word文档查�
 
 # 配置和使用方法
 
-1 配置环境
+1.配置环境
 
 建议使用开发环境：Android studio，版本号为3.5.0进行开发；
 
@@ -20,7 +20,7 @@ aar中使用的SDK版本：(SDKVersion 28)版本，(minSDKVersion 21)版本 ；
 
 aar中使用的kotlin版本：1.3.41。
 
-2 使用方法
+2.使用方法
 
 将三个aar放到libs目录下；
 
@@ -46,7 +46,7 @@ Demo说明:
 
 Demo分别展示了aar中的各项功能使用和调用方法。
 
-3 权限获取
+3.权限获取
 
 使用aar建议添加如下权限:
 
@@ -60,17 +60,17 @@ Demo分别展示了aar中的各项功能使用和调用方法。
 
 # 初始化
 
-1 初始化操作
+1.初始化操作
 
 新建InitLibCore类的对象，传入上下文，并调用该对象的init方法进行初始化。
 
-val initLibCore = InitLibCore()
+    val initLibCore = InitLibCore()
 
-initLibCore.init(context)
+    initLibCore.init(context)
 
 注：初始化操作必不可少，否则无法使用本aar库，传入的context建议使用应用Application的context。
 
-2 屏幕分辨率
+2.屏幕分辨率
 
 在初始化的过程中，会获取设备的分辨率和屏幕方向，只在初始化时获取，涉及屏幕旋转的操作时，需要重新获取并对参数进行赋值，以便UI正常显示。如需手动设定屏幕分辨率，可以使用设定屏幕分辨率的方法。
 
