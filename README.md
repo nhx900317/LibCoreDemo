@@ -227,7 +227,7 @@ isAutoPlay|Boolean|否|是否自动轮播，不传入默认true，即自动轮�
 定位功能使用高德定位。<br>
 注：在使用定位功能前，请确保程序具有网络访问和位置访问的权限。<br>
 ## 4.1 账号注册<br>
-使用在高德定位官方网站(https://lbs.amap.com )，注册并填写信息并完成注册，会得到一个appkey<br>
+使用在高德定位官方网站(https://lbs.amap.com )注册并填写信息并完成注册，会得到一个appkey<br>
 在Manifest文件<application>节点加入如下配置：<br>
     <!-- auto nav location-->
  
@@ -276,6 +276,46 @@ abstract fun stopLocation()<br>
     //停止定位
     mLocation.stopLocation()
     
-注：如不使用Activity实现接口方式，mLocation.getLocation(this)中的this需使用回调LocationAb.LocationCallback代替。<br>
+注：如不用Activity实现接口方式，mLocation.getLocation(this)中的this需使用回调LocationAb.LocationCallback代替。<br>
+
+## 4.3 回调方法<br>
+### 4.3.1  开始定位回调<br>
+开始定位回调，在开始定位时回调。<br>
+fun onStartLocation(msg:String)<br>
+
+参数名称|参数说明
+-------|-------
+msg|开始定位
+
+### 4.3.2  定位成功回调<br>
+定位成功回调，在定位成功时回调，返回定位信息。<br>
+fun onLocationFound(locationBean:LocationBean)<br>
+参数名称|参数说明
+-------|-------
+locationBean|LocationBean类对象，定位信息结果
+
+LocationBean类具体如下：<br>
+
+参数名称|参数类型|参数说明
+-------|-------|-------
+longitude|Double|经度
+latitude|Double|纬度
+country|String|国家
+province|String|省份
+city|String|城市
+cityCode|String|城市代码
+district|String|区县
+address|String|具体地址
+poiName|String|热点地名
+
+### 4.3.3  定位失败回调<br>
+定位失败回调，在定位失败时回调。<br>
+fun onLocationError(code:Int, info:String, detail:String)<br>
+
+参数名称|参数说明
+-------|-------
+code|错误码，具体请根据错误信息定位分析<br>详细错误类别和错误解决方法请在高德官网查看
+info|错误信息，用于开发者分析问题
+detail|错误详情，可用于页面提示
 
 
