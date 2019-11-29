@@ -244,3 +244,38 @@ class LocationG(pContext: Context, locationParam: LocationParam)<br>
 -------|-------
 pContext|上下文
 locationParam|定位参数，具体见下文
+
+LocationParam类具体如下：<br>
+
+参数名称|参数类型 |是否必须|参数说明
+-------|-------|-------|-------
+isGpsFirst|Boolean|否|设置是否gps优先，不传默认为false
+httpTimeOut|Long|否|设置网络请求超时时间，单位：ms，不传默认为30000ms
+isOnceLocation|Boolean|否|设置是否单次定位，不传默认为false
+interval|Boolean|否|设置定位时间间隔，单位：ms<br>不传默认为2000ms，仅在非单次定位时有效
+isLocationCacheEnable|Boolean|否|设置是否使用缓存定位，不传默认为true
+
+abstract fun getLocation(pLocationCallback: LocationCallback)<br>
+
+参数名称|参数说明
+-------|-------
+pLocationCallback|定位回调，LocationAb.LocationCallback
+
+abstract fun stopLocation()<br>
+用于在连续定位模式下停止定位，只在连续定位时有效，单次定位模式时无效。<br>
+具体使用方法：<br>
+在使用定位的Activity实现LocationAb.LocationCallback接口，或者在使用时创建LocationAb.LocationCallback，以下示例代码使用Activity实现接口方式：<br>
+
+    var mLocation: LocationAb? = null
+    var mLocationParam = LocationParam()
+    //在此设置定位参数，在此只设置了httpTimeOut一个参数，其他参数同理
+    mLocationParam.httpTimeOut = 10000
+    mLocation = LocationG(this, locationParam)
+    //开始定位
+    mLocation.getLocation(this)
+    //停止定位
+    mLocation.stopLocation()
+    
+注：如不使用Activity实现接口方式，mLocation.getLocation(this)中的this需使用回调LocationAb.LocationCallback代替。<br>
+
+
