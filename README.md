@@ -211,9 +211,9 @@ longitude|Double|否|经度，不传入默认123.38
 fileName|String|是|涂鸦保存时的文件路径和文件名称<br>支持保存为png格式的图片<br>所以该字符串务必以.png结尾<br>例如“/sdcard/doodle.png”
 
 ## 3.13 图片轮播<br>
-图片轮播窗口主要提供了一个图片轮播页面，设置图片的目录，程序自动查找目录下的图片进行轮播，支持格式为png和jpg，并可以自定义切换效果和切换时间。
-具体使用方法：
-在安卓代码中使用intent启动MyBannerActivity，通过intent.putExtra()方法，传入的参数如下：
+图片轮播窗口主要提供了一个图片轮播页面，设置图片的目录，程序自动查找目录下的图片进行轮播，支持格式为png和jpg，并可以自定义切换效果和切换时间。<br>
+具体使用方法：<br>
+在安卓代码中使用intent启动MyBannerActivity，通过intent.putExtra()方法，传入的参数如下：<br>
 
 参数名称|参数类型 |是否必须|参数说明
 -------|-------|-------|-------
@@ -222,3 +222,24 @@ delayTime|Int|否|切换图片时间间隔，不传默认为5000ms
 bannerAnimation|Int|否|切换图片动画效果，不传入或者传入值有误时为1<br>1：FlipHorizontal<br>2：FlipVertical<br>3：Stack<br>4：CubeIn<br>5：CubeOut<br>6：Accordion<br>7：RotateUp<br>8：RotateDown<br>切换图片动画的具体效果请实际查看。
 bannerStyle|Int|否|banner显示风格，不传入或者传入值有误时为1<br>0：不显示指示器和标题<br>1：显示圆形指示器<br>2：显示数字指示器
 isAutoPlay|Boolean|否|是否自动轮播，不传入默认true，即自动轮播
+
+# 4. 定位功能<br>
+定位功能使用高德定位。<br>
+注：在使用定位功能前，请确保程序具有网络访问和位置访问的权限。<br>
+## 4.1 账号注册<br>
+使用在高德定位官方网站(https://lbs.amap.com)注册并填写信息并完成注册，会得到一个appkey<br>
+在Manifest文件<application>节点加入如下配置：<br>
+        <!-- auto nav location-->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="在此处填写你的appkey" />
+        <!-- auto nav location—>
+
+## 4.2 使用方法<br>
+在完成注册之后，在程序中使用方法如下：<br>
+class LocationG(pContext: Context, locationParam: LocationParam)<br>
+
+参数名称|参数说明
+-------|-------
+pContext|上下文
+locationParam|定位参数，具体见下文
