@@ -238,7 +238,7 @@ isAutoPlay|Boolean|否|是否自动轮播，不传入默认true，即自动轮�
 
 ## 4.2 使用方法<br>
 在完成注册之后，在程序中使用方法如下：<br>
-class LocationG(pContext: Context, locationParam: LocationParam)<br>
+class LocationG(pContext: Context, locationParam: LocationParam):LocationAb<br>
 
 参数名称|参数说明
 -------|-------
@@ -290,6 +290,7 @@ msg|开始定位
 ### 4.3.2  定位成功回调<br>
 定位成功回调，在定位成功时回调，返回定位信息。<br>
 fun onLocationFound(locationBean:LocationBean)<br>
+
 参数名称|参数说明
 -------|-------
 locationBean|LocationBean类对象，定位信息结果
@@ -318,4 +319,46 @@ code|错误码，具体请根据错误信息定位分析<br>详细错误类别�
 info|错误信息，用于开发者分析问题
 detail|错误详情，可用于页面提示
 
+# 5. 天气查询<br>
+天气获取使用的是京东万象接口。在使用时请先注册自己的appKey，请在京东万象网站自行注册(http://wx.jdcloud.com )，并传入注册获得的appKey值，具体见下文WeatherJDWX方法。<br>
 
+## 5.1 使用方法<br>
+在程序中使用如下方法:<br>
+class WeatherJDWX(city: String, appKey:String) : WeatherAb()<br>
+
+参数名称|参数类型|参数说明
+-------|-------|-------
+city|String|获取天气的城市名称，例如：沈阳
+appKey|String|获取天气的key<br>请使用者在京东万象网站自己注册账号<br>传入使用者注册的appKey
+
+abstract fun getWeather(pWeatherCallback: WeatherCallback)<br>
+
+参数名称|参数说明
+-------|-------
+pWeatherCallback|天气信息回调，WeatherCallback
+
+在使用天气的Activity实现WeatherAb.WeatherCallback接口，或者在使用时创建WeatherAb.WeatherCallback，以下示例代码使用Activity实现接口方式
+
+        var mWeather: WeatherAb? = null
+        //传入城市和appKey
+        mWeather =WeatherJDWX(“沈阳”, "在此处填写你的appkey")
+        mWeather.getWeather(this)
+        
+注：如不使用Activity实现接口方式，mWeather.getWeather(this)中的this需使用回调WeatherAb.WeatherCallback代替。<br>
+
+## 5.1 回调方法<br>
+### 5.2.1  开始获取天气回调<br>
+开始获取天气信息时回调<br>
+fun onStartWeather(msg:String)<br>
+
+参数名称|参数说明
+-------|-------
+msg|开始获取 $city 天气
+
+### 5.2.2  获取天气成功回调<br>
+获取天气信息成功时回调<br>
+fun onWeatherFound(weatherBean:WeatherBean)<br>
+
+参数名称|参数说明
+-------|-------
+weatherBean|WeatherBean类对象，天气信息结果
