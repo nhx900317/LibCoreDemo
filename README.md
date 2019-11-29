@@ -309,7 +309,15 @@ district|String|区县
 address|String|具体地址
 poiName|String|热点地名
 
-### 4.3.3  定位失败回调<br>
+### 4.3.3  停止定位回调
+停止定位回调，在调用停止定位方法时回调。
+fun onStopLocation(msg:String)
+
+参数名称|参数说明
+-------|-------
+msg|停止定位
+
+### 4.3.4  定位失败回调<br>
 定位失败回调，在定位失败时回调。<br>
 fun onLocationError(code:Int, info:String, detail:String)<br>
 
