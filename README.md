@@ -1,3 +1,9 @@
+# 修改记录<br>
+版本|修改记录 |修改时间|修改人
+-------|-------|-------|-------
+1.0|创建文档|2019-11-02|天河归来
+1.1|增加在线视频播放功能<br>修改文件删除不完全和无法打开MP3文件的问题|2019-12-02|天河归来
+
 # LibCoreDemo<br>
 最近将很多之前做的功能封装成了一个aar库，这样使用起来比较方便，主要封装了UI页面和定位，天气等功能，不定期更新，喜欢请支持一下:)<br>
 UI页面总体包含音乐播放，视频播放，图片查看，word文档查看，Excel表格查看，PPT幻灯片查看，PDF文档查看，网页查看，地图查看，涂鸦窗口和图片轮播窗口。功能主要使用intent的putextra方法传入参数，启动相应的Activity，具体使用方法请见Demo。<br>
@@ -90,9 +96,12 @@ playListWidth|Int|否|播放列表宽度，不传默认为屏幕宽度的1/3
 
 注1：在表传入参数是否必须一列，如果标注为是，表明此参数必须传入，下同。<br>
 注2：在Activity启动时都会将传入的参数Log出来，请过滤TAG为Activity名称查看，以便确认传入参数的值。下同。<br>
+注3：在MyStaticParameter静态参数类中，有String类型变量currentMyActivity，可以实时标识当前启动的aar中的Activity，需要时可以使用此参数判断。<br>
+注4：在MyStaticParameter静态参数类中，有Boolean类型变量isMyMusicActivity，可以实时标识是否启动相应的Activity，启动时为true，反之为false。每个Activity都有相应的参数，即在Activity名字前面加is，需要时可以使用此参数判断，下同。<br>
+
 
 ## 3.3 视频播放<br>
-视频播放主要提供了一个带进度条的视频播放器。<br>
+视频播放主要提供了一个带进度条的视频播放器。可以播放本地视频和网络url视频，播放网络视频时传入视频的播放地址需要以http开头。<br>
 具体使用方法：<br>
 在安卓代码中使用intent启动MyVideoActivity，通过intent.putExtra()方法，传入的参数如下：<br>
 
@@ -310,8 +319,8 @@ address|String|具体地址
 poiName|String|热点地名
 
 ### 4.3.3  停止定位回调
-停止定位回调，在调用停止定位方法时回调。
-fun onStopLocation(msg:String)
+停止定位回调，在调用停止定位方法时回调。<br>
+fun onStopLocation(msg:String)<br>
 
 参数名称|参数说明
 -------|-------
@@ -372,7 +381,7 @@ fun onWeatherFound(weatherBean:WeatherBean)<br>
 weatherBean|WeatherBean类对象，天气信息结果
 
 ### 5.2.3  获取天气失败回调
-获取天气失败回调，在获取天气失败时回调。
+获取天气失败回调，在获取天气失败时回调。<br>
 fun onWeatherError(code:String, msg:String)
 
 参数名称|参数说明
