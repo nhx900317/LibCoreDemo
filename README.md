@@ -13,10 +13,10 @@ UI页面总体包含音乐播放，视频播放，图片查看，word文档查�
 # 1. 配置和使用方法<br>
 
 ## 1.1 配置环境<br>
-建议使用开发环境：Android studio，版本号为3.5.0进行开发；<br>
-建议gradle版本：建议使用5.4.1以及以上版本进行开发；<br>
-建议android版本：建议使用(SDKVersion 28)以及以上版本进行开发；<br>
-aar中使用的SDK版本：(SDKVersion 28)版本，(minSDKVersion 21)版本 ；<br>
+建议使用开发环境：Android studio，版本号为3.5.0或以上进行开发；<br>
+建议gradle版本：建议使用5.4.1或以上版本进行开发；<br>
+建议android版本：建议使用(SDKVersion 28)或以上版本进行开发；<br>
+aar中使用的SDK版本：SDKVersion 28，minSDKVersion 21；<br>
 aar中使用的kotlin版本：1.3.41。<br>
 
 ## 1.2 使用方法<br>
