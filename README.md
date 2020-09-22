@@ -21,8 +21,8 @@ aar中使用的SDK版本：SDKVersion 28，minSDKVersion 21；<br>
 aar中使用的kotlin版本：1.3.41。<br>
 
 ## 1.2 使用方法<br>
-将三个aar放到libs目录下；<br>
-在gradle中添加三个aar和相关源的引用，具体见demo；<br>
+将四个aar放到libs目录下；<br>
+在gradle中添加四个aar和相关源的引用，具体见demo；<br>
 在使用前需要对lib进行初始化，具体代码见第二章。<br>
 注1:关于四个aar文件：<br>
 libsiasuncore-release.aar为核心库aar；<br>
