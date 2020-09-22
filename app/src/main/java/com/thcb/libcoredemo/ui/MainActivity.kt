@@ -7,6 +7,9 @@ import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import com.tech57.software.filepicker.MaterialFilePicker
+import com.tech57.software.filepicker.ui.FilePickerActivity
+import com.thcb.libcore.function.file.FileHolder
 import com.thcb.libcore.function.location.*
 import com.thcb.libcore.function.weather.WeatherAb
 import com.thcb.libcore.function.weather.WeatherBean
@@ -23,7 +26,7 @@ class MainActivity : MyBaseActivity(), LocationAb.LocationCallback, WeatherAb.We
     private val TAG = "MainActivity"
     private var mContext: Context? = null
     private var tvInfoShow: TextView? = null
-    private var btFileManager: Button? = null
+    private var btFileHolder: Button? = null
     private var btMusic: Button? = null
     private var btVideo: Button? = null
     private var btPhoto: Button? = null
@@ -56,7 +59,7 @@ class MainActivity : MyBaseActivity(), LocationAb.LocationCallback, WeatherAb.We
 
     private fun initView() {
         tvInfoShow = this.findViewById(R.id.info_show)
-        btFileManager = this.findViewById(R.id.file_manager_bt)
+        btFileHolder = this.findViewById(R.id.file_holder_bt)
         btMusic = this.findViewById(R.id.music_bt)
         btVideo = this.findViewById(R.id.video_bt)
         btPhoto = this.findViewById(R.id.photo_bt)
@@ -76,8 +79,8 @@ class MainActivity : MyBaseActivity(), LocationAb.LocationCallback, WeatherAb.We
     }
 
     private fun onClick() {
-        btFileManager!!.setOnClickListener {
-
+        btFileHolder!!.setOnClickListener {
+            showFileChooser()
         }
         btMusic!!.setOnClickListener {
             val intent = Intent(mContext, MyMusicActivity::class.java)
@@ -141,8 +144,7 @@ class MainActivity : MyBaseActivity(), LocationAb.LocationCallback, WeatherAb.We
         btWeather!!.setOnClickListener {
             when {
                 etWeather!!.text.toString() != "" -> {
-                    mWeather =
-                        WeatherJDWX(etWeather!!.text.toString(), "你的appkey，请前往京东万象开放平台注册")
+                    mWeather = WeatherJDWX(etWeather!!.text.toString(), "你的appkey，请前往京东万象开放平台注册")
                     mWeather!!.getWeather(this)
                 }
                 mCity != "" -> {
@@ -212,6 +214,26 @@ class MainActivity : MyBaseActivity(), LocationAb.LocationCallback, WeatherAb.We
         tvInfoShow!!.text = "code:$code,msg:$msg"
     }
 
+    private fun showFileChooser() {
+        MaterialFilePicker()
+            .withRequestCode(1)
+            .withActivity(this)
+            .withPath(StaticParameter.DEFAULT_PATH)
+            .withHiddenFiles(true)
+            .withTitle(RApplication.context.getString(R.string.select_file_title))
+            .start()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == 1) {
+            if (data != null) {
+                val path = data.getStringExtra(FilePickerActivity.RESULT_FILE_PATH)
+                LogDebug.d(TAG, "path:$path")
+                FileHolder.openFile(this, path)
+            }
+        }
+    }
 
     override fun onDestroy() {
         super.onDestroy()

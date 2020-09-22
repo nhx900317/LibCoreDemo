@@ -28,7 +28,7 @@
             android:focusableInTouchMode="true">
 
             <Button
-                android:id="@+id/file_manager_bt"
+                android:id="@+id/file_holder_bt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_margin="8dp"
@@ -38,7 +38,7 @@
                 android:id="@+id/music_bt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/file_manager_bt"
+                android:layout_below="@+id/file_holder_bt"
                 android:layout_margin="8dp"
                 android:text="@string/music" />
 

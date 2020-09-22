@@ -45,8 +45,10 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    implementation 'com.android.support:design:29.0.0'
 
     /** aar and modules   */
+    implementation(name: 'filepicker-debug', ext: 'aar')
     implementation(name: 'libcore-release', ext: 'aar')
     implementation(name: 'locktableview-release', ext: 'aar')
     implementation(name: 'photoview-release', ext: 'aar')
