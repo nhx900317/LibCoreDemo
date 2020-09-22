@@ -9,6 +9,7 @@ UI页面总体包含音乐播放，视频播放，图片查看，word文档查�
 1.0|创建文档|2019-11-02|天河归来
 1.1|增加在线视频播放功能<br>修改文件删除不完全和无法打开MP3文件的问题|2019-12-02|天河归来
 1.2|增加在线音频播放功能|2019-12-12|天河归来
+1.3|增加文件浏览器功能|2020-09-22|天河归来
 
 # 1. 配置和使用方法<br>
 
@@ -23,10 +24,11 @@ aar中使用的kotlin版本：1.3.41。<br>
 将三个aar放到libs目录下；<br>
 在gradle中添加三个aar和相关源的引用，具体见demo；<br>
 在使用前需要对lib进行初始化，具体代码见第二章。<br>
-注1:关于三个aar文件：<br>
+注1:关于四个aar文件：<br>
 libsiasuncore-release.aar为核心库aar；<br>
 locktableview-release.aar为显示Excel和表格的控件的aar；<br>
 photoview-release.aar为可缩放图片的控件的aar；<br>
+filepicker-debug.aar为文浏览器的aar；<br>
 注2：由于aar中有涉及页面的操作，设定屏幕分辨率有助于更美观的页面显示。<br>
 注3：本文中方法和示例代码均用kotlin标注。<br>
 具体使用方法可参见Demo。<br>
