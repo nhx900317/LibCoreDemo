@@ -88,7 +88,7 @@ msg|错误信息
 仅列出不带回调的初始化方法，带回调的具体示例清参看Demo：
 
     val initLibCore = InitLibCore()
-    initLibCore.init(content， “authcode(具体见Demo中)”， “【你的deviceId】”）
+    initLibCore.init(content， “【你的authcode】”， “【你的deviceId】”）
 
 ## 2.2 屏幕分辨率<br>
 在初始化的过程中，会获取设备的分辨率和屏幕方向，只在初始化时获取，涉及屏幕旋转的操作时，需要重新获取并对参数进行赋值，以便UI正常显示。如需手动设定屏幕分辨率，可以使用设定屏幕分辨率的方法。<br>
