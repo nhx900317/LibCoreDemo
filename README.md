@@ -530,8 +530,7 @@ fun getFileType(path: String): String 方法返回文件类型：docx<br>
 v|tag: String, value: String|LogDebug.v("tag", "log内容")
 d|tag: String, value: String|LogDebug.d("tag", "log内容")
 e|tag: String, value: String|LogDebug.e("tag", "log内容")
-LogDebugTAG|tag: String，设置通用tag|LogDebug.LogDebugTAG("通用tag")<br>通用tag，在每个LogDebug前都会添加通用tag，最后tag的内容为：
-通用tag+tag
+LogDebugTAG|tag: String|LogDebug.LogDebugTAG("通用tag")<br>通用tag，在每个LogDebug前都会添加通用tag，最后tag的内容为：通用tag+tag
 LogDebugSwitch|flag: Boolean|LogDebug.LogDebugSwitch(false)<br>设置LogDebug开关，默认为true
 
 
