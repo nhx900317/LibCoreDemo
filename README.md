@@ -10,7 +10,7 @@ UI页面总体包含音乐播放，视频播放，图片查看，word文档查�
 1.1|增加在线视频播放功能<br>修改文件删除不完全和无法打开MP3文件的问题|2019-12-02|天河归来
 1.2|增加在线音频播放功能|2019-12-12|天河归来
 1.3|增加文件浏览器功能|2020-09-22|天河归来
-2.0|增加验证功能<br>修复已知bug|2020-09-25|天河归来
+2.0|增加验证和文件管理等功能<br>修复已知bug|2020-09-25|天河归来
 
 # 1. 配置和使用方法<br>
 
@@ -478,24 +478,61 @@ fileBeans|List<FileBean>|查找结果列表，详情见下文
 文件管理类(FileManager)，主要是一些文件查找和判断的方法，具体方法如下：<br>
 
 ### 6.3.1 判断文件存在和类型匹配<br>
-判断文件是否存在，并且类型是否相符，具体方法如下表6.3.1-1所示：<br>
+判断文件是否存在，并且类型是否相符，具体方法如下表所示：<br>
 fun fileExist(path: String, fileType: String): FileSearchBean<br>
 
 参数名称|参数类型|参数说明
 -------|-------|-------
 path|String|查找文件的路径
 fileType|String|查找文件的类型
-返回值|FileSearchBean|返回类型，通过code判断查找和类型匹配结果<br>200：文件存在且格式匹配<br>300：文件存在但格式不匹<br>400：存在但不是文件，比如是目录<br>500：文件不存在<br>600：path是空
+返回值|FileSearchBean|返回类型，通过code判断查找和类型匹配结果<br>200：文件存在且格式匹配<br>300：文件存在但格式不匹<br>400：存在但不是文件，比如是目录<br>500：文件不存在<br>600：path是空<br>
 
 ### 6.3.2 查找指定目录的文件<br>
-查找指定目录的所有文件，不包含子目录中的文件，如下表6.3.2-1所示：<br>
+查找指定目录的所有文件，不包含子目录中的文件，如下表所示：<br>
 fun findFileByPath(path: String): FileSearchBean<br>
 参数名称|参数类型|参数说明
 -------|-------|-------
 path|String|查找文件的路径
 fileType|String|查找文件的类型
 返回值|FileSearchBean|返回类型，通过code判断查找结果<br>200：查找成功，fileBeans为查找文件的结果<br>300：目录为空<br>400：目录不存在<br>
+注：虽然此方法不会查找子目录中的文件，但是目录也会在返回结果fileBeans中返回，可以判断isDirectory参数，如果为true，再次调用此方法查找子目录的文件。<br>
 
+### 6.3.3 按关键字查找指定目录的文件<br>
+查找指定目录包含关键字的所有文件，不包含子目录中的文件，如下表所示：<br>
+fun findFileByName(path: String, keyWord: String): FileSearchBean<br>
+参数名称|参数类型|参数说明
+-------|-------|-------
+path|String|查找文件的路径
+keyWord|String|查找文件关键字
+返回值|FileSearchBean|返回类型，通过code判断查找结果<br>100：path为文件<br>200：查找成功，fileBeans为查找文件的结果<br>300：目录为空<br>400：目录不存在<br>
+
+### 6.3.4 按关键字删除指定目录的文件
+删除指定目录包含关键字的所有文件，不包含子目录中的文件，如下表所示：<br>
+fun deleteFile(path: String, keyWord: String): Boolean<br>
+参数名称|参数类型|参数说明
+-------|-------|-------
+path|String|查找文件的路径
+keyWord|String|查找文件关键字
+返回值|FileSearchBean|返回类型，删除结果<br>true：删除成功<br>false：删除失败<br>
+
+### 6.3.5 拆分文件路径名称和类型<br>
+将文件路径+名称拆分成路径，名称和类别，例如传入“/sdcard/folder/test.docx”<br>
+fun subFileName(path: String): String 方法返回文件名：test.docx<br>
+fun subFilePath(path: String): String 方法返回文件路径：/sdcard/folder<br>
+fun getFileType(path: String): String 方法返回文件类型：docx<br>
+
+# 7. 日志功能<br>
+在本章对aar里的日志模块进行说明，并提供相应的使用方法。<br>
+## 7.1 LogDebug模块<br>
+此模块对安卓自带的Log模块进行简单封装，添加Tag，具体方法如下：
+参数名称|传入参数|使用说明和示例
+-------|-------|-------
+v|tag: String, value: String|LogDebug.v("tag", "log内容")
+d|tag: String, value: String|LogDebug.d("tag", "log内容")
+e|tag: String, value: String|LogDebug.e("tag", "log内容")
+LogDebugTAG|tag: String，设置通用tag|LogDebug.LogDebugTAG("通用tag")<br>通用tag，在每个LogDebug前都会添加通用tag，最后tag的内容为：
+通用tag+tag
+LogDebugSwitch|flag: Boolean|LogDebug.LogDebugSwitch(false)<br>设置LogDebug开关，默认为true
 
 
 
