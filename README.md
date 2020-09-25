@@ -10,6 +10,7 @@ UI页面总体包含音乐播放，视频播放，图片查看，word文档查�
 1.1|增加在线视频播放功能<br>修改文件删除不完全和无法打开MP3文件的问题|2019-12-02|天河归来
 1.2|增加在线音频播放功能|2019-12-12|天河归来
 1.3|增加文件浏览器功能|2020-09-22|天河归来
+1.3|增加验证功能<br>修复已知bug|2020-09-25|天河归来
 
 # 1. 配置和使用方法<br>
 
@@ -45,12 +46,44 @@ Demo分别展示了aar中的各项功能使用和调用方法。<br>
 
 ## 2.1 初始化操作<br>
 新建InitLibCore类的对象，传入上下文，并调用该对象的init方法进行初始化。<br>
- 
-    val initLibCore = InitLibCore()
-
-    initLibCore.init(context)
-
 注：初始化操作必不可少，否则无法使用本aar库，传入的context建议使用应用Application的context。<br>
+初始化方法有两个，一个带回调，一个不带回调，调用其中一个就可以。<br>
+### 2.1.1 初始化方法(无回调)：<br>
+fun init(mContext: Context, authCode: String, deviceId: String)<br>
+参数名称|参数类型 |是否必须|参数说明
+-------|-------|-------|-------
+mContext|Content|是|上下文参数
+authCode|String|是|授权码，Demo中自带授权码
+deviceId|String|否|设备id，无则传入""
+
+### 2.1.2 初始化方法(带回调)：<br>
+fun init(mContext: Context, authCode: String, deviceId: String, pAuthCodeCallback: AuthCodeAb.AuthCodeCallback)<br>
+参数名称|参数类型 |是否必须|参数说明
+-------|-------|-------|-------
+mContext|Content|是|上下文参数
+authCode|String|是|授权码，Demo中自带授权码
+deviceId|String|否|设备id，无则传入""
+pAuthCodeCallback|AuthCodeCallback|是|验证结果回调
+
+### 2.1.3 回调方法<br>
+验证码结果回调方法
+#### 2.1.3.1  验证通过回调<br>
+验证码验证成功时回调
+fun onSuccess(msg: String)<br>
+参数名称|参数说明
+-------|-------
+msg|操作成功
+
+#### 2.1.3.2  验证失败回调<br>
+验证码验证失败时回调。<br>
+注：失败情况比如：验证码不存在，验证码已过期，联网超时等，具体看code和msg。<br>
+onError(code: Int, msg: String)<br>
+
+参数名称|参数说明
+-------|-------
+code|错误码
+msg|错误信息
+
 ## 2.2 屏幕分辨率<br>
 在初始化的过程中，会获取设备的分辨率和屏幕方向，只在初始化时获取，涉及屏幕旋转的操作时，需要重新获取并对参数进行赋值，以便UI正常显示。如需手动设定屏幕分辨率，可以使用设定屏幕分辨率的方法。<br>
 获取屏幕分辨率的方法：ScreenResolution.getResolution(mContext:Context)<br>
