@@ -47,7 +47,7 @@ Demo分别展示了aar中的各项功能使用和调用方法。<br>
 ## 2.1 初始化操作<br>
 新建InitLibCore类的对象，传入上下文，并调用该对象的init方法进行初始化。<br>
 注：初始化操作必不可少，否则无法使用本aar库，传入的context建议使用应用Application的context。<br>
-初始化方法有两个，一个带回调，一个不带回调，调用其中一个就可以。<br>
+初始化方法有两个，一个带回调，一个不带回调，根据需要调用其中一个就可以。<br>
 ### 2.1.1 初始化方法(无回调)：<br>
 fun init(mContext: Context, authCode: String, deviceId: String)<br>
 参数名称|参数类型 |是否必须|参数说明
@@ -83,6 +83,12 @@ onError(code: Int, msg: String)<br>
 -------|-------
 code|错误码
 msg|错误信息
+
+### 2.1.4 示例代码<br>
+仅列出不带回调的初始化方法，带回调的具体示例清参看Demo：
+
+    val initLibCore = InitLibCore()
+    initLibCore.init(content， “authcode(具体见Demo中)”， “【你的deviceId】”）
 
 ## 2.2 屏幕分辨率<br>
 在初始化的过程中，会获取设备的分辨率和屏幕方向，只在初始化时获取，涉及屏幕旋转的操作时，需要重新获取并对参数进行赋值，以便UI正常显示。如需手动设定屏幕分辨率，可以使用设定屏幕分辨率的方法。<br>
