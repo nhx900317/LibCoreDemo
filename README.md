@@ -533,5 +533,15 @@ e|tag: String, value: String|LogDebug.e("tag", "log内容")
 LogDebugTAG|tag: String|LogDebug.LogDebugTAG("通用tag")<br>通用tag，在每个LogDebug前都会添加通用tag，最后tag的内容为：通用tag+tag
 LogDebugSwitch|flag: Boolean|LogDebug.LogDebugSwitch(false)<br>设置LogDebug开关，默认为true
 
+## 7.2 Toast模块<br>
+此模块ToastUtil类，将安卓自带的toast进行封装，共有如下三个方法：<br>
+参数名称|传入参数|使用说明和示例
+-------|-------|-------
+shortToast|mContent: Content, toast: String|Toast.shortToast(mContent, "toast内容")
+longToast|mContent: Content, toast: String|Toast.longToast(mContent, "toast内容")
+setToastSwitch|flag: Boolean|Toast.setToastSwitch(false)
+
+# 8. 其他功能<br>
+在本章对aar里的其他小功能模块进行说明，并提供相应的使用方法。<br>
 
 
