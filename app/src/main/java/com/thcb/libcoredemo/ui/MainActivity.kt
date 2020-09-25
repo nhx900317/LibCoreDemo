@@ -1,6 +1,7 @@
 package com.thcb.libcoredemo.ui
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -21,7 +22,7 @@ import com.thcb.libcoredemo.R
 import com.thcb.libcoredemo.RApplication
 import com.thcb.libcoredemo.params.StaticParameter
 
-class MainActivity : MyBaseActivity(), LocationAb.LocationCallback, WeatherAb.WeatherCallback {
+class MainActivity : Activity(), LocationAb.LocationCallback, WeatherAb.WeatherCallback {
 
     private val TAG = "MainActivity"
     private var mContext: Context? = null
@@ -53,8 +54,6 @@ class MainActivity : MyBaseActivity(), LocationAb.LocationCallback, WeatherAb.We
         mContext = this
         initView()
         onClick()
-        val locationParam = LocationParam()
-        mLocation = LocationG(this, locationParam)
     }
 
     private fun initView() {
@@ -89,38 +88,38 @@ class MainActivity : MyBaseActivity(), LocationAb.LocationCallback, WeatherAb.We
         }
         btVideo!!.setOnClickListener {
             val intent = Intent(mContext, MyVideoActivity::class.java)
-            intent.putExtra("filePath", StaticParameter.DEFAULT_VIDEO_PATH + "/test.mp4")
+            intent.putExtra("filePath", StaticParameter.DEFAULT_VIDEO_PATH + "test.mp4")
             mContext!!.startActivity(intent)
         }
         btPhoto!!.setOnClickListener {
             val intent = Intent(mContext, MyPhotoActivity::class.java)
-            intent.putExtra("filePath", StaticParameter.DEFAULT_PHOTO_PATH + "/1.jpg")
+            intent.putExtra("filePath", StaticParameter.DEFAULT_PHOTO_PATH + "1.jpg")
             mContext!!.startActivity(intent)
         }
         btAnimation!!.setOnClickListener {
             val intent = Intent(mContext, MyAnimationActivity::class.java)
-            intent.putExtra("filePath", StaticParameter.DEFAULT_GIF_PATH + "/animation_smile.gif")
+            intent.putExtra("filePath", StaticParameter.DEFAULT_GIF_PATH + "animation_smile.gif")
             mContext!!.startActivity(intent)
         }
         btWord!!.setOnClickListener {
             val intent = Intent(mContext, MyWordActivity::class.java)
-            intent.putExtra("filePath", StaticParameter.DEFAULT_WORD_PATH + "/test.docx")
+            intent.putExtra("filePath", StaticParameter.DEFAULT_WORD_PATH + "test.docx")
             mContext!!.startActivity(intent)
         }
         btExcel!!.setOnClickListener {
             val intent = Intent(mContext, MyExcelActivity::class.java)
-            intent.putExtra("filePath", StaticParameter.DEFAULT_EXCEL_PATH + "/template.xls")
+            intent.putExtra("filePath", StaticParameter.DEFAULT_EXCEL_PATH + "template.xls")
             intent.putExtra("title", "/template.xls")
             mContext!!.startActivity(intent)
         }
         btPPt!!.setOnClickListener {
             val intent = Intent(mContext, MyPPTActivity::class.java)
-            intent.putExtra("filePath", StaticParameter.DEFAULT_PPT_PATH + "/1234.pptx")
+            intent.putExtra("filePath", StaticParameter.DEFAULT_PPT_PATH + "1234.pptx")
             mContext!!.startActivity(intent)
         }
         btPDF!!.setOnClickListener {
             val intent = Intent(mContext, MyPDFActivity::class.java)
-            intent.putExtra("filePath", StaticParameter.DEFAULT_PDF_PATH + "/test.pdf")
+            intent.putExtra("filePath", StaticParameter.DEFAULT_PDF_PATH + "test.pdf")
             mContext!!.startActivity(intent)
         }
         btWeb!!.setOnClickListener {
@@ -129,6 +128,8 @@ class MainActivity : MyBaseActivity(), LocationAb.LocationCallback, WeatherAb.We
             mContext!!.startActivity(intent)
         }
         btGetLocation!!.setOnClickListener {
+            val locationParam = LocationParam()
+            mLocation = LocationG(this, locationParam)
             mLocation!!.getLocation(this)
         }
         btStopLocation!!.setOnClickListener {
@@ -162,7 +163,7 @@ class MainActivity : MyBaseActivity(), LocationAb.LocationCallback, WeatherAb.We
         }
         btDoodle!!.setOnClickListener {
             val intent = Intent(mContext, MyDoodleActivity::class.java)
-            intent.putExtra("fileName", StaticParameter.DEFAULT_DOODLE_PATH + "/test.png")
+            intent.putExtra("fileName", StaticParameter.DEFAULT_DOODLE_PATH + "test.png")
             mContext!!.startActivity(intent)
         }
         btBanner!!.setOnClickListener {
@@ -190,7 +191,7 @@ class MainActivity : MyBaseActivity(), LocationAb.LocationCallback, WeatherAb.We
     }
 
     override fun onLocationError(code: Int, info: String, detail: String) {
-        LogDebug.d(TAG, "onLocationError:$code,info:$info")
+        LogDebug.d(TAG, "onLocationError:$code,info:$info,detail:$detail")
         tvInfoShow!!.text = detail
     }
 

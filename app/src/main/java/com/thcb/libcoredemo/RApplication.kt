@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.Application
 import android.content.Context
 import com.thcb.libcore.InitLibCore
+import com.thcb.libcore.function.authcode.AuthCodeAb
 import com.thcb.libcore.units.LogDebug
 import com.thcb.libcoredemo.params.StaticParameter
 import java.io.File
@@ -21,9 +22,21 @@ class RApplication : Application() {
         super.onCreate()
         context = this
         LogDebug.d(TAG, "onCreate")
-
         val initLibCore = InitLibCore()
-        initLibCore.init(context)
+        initLibCore.init(
+            context,
+            "794d248e1629f6d2ddb36e4acacbeb56",
+            "",
+            object : AuthCodeAb.AuthCodeCallback {
+                override fun onSuccess(msg: String) {
+                    LogDebug.d(TAG, "initLibCore onSuccess:$msg")
+                    LogDebug.d(TAG, "getVersion:${initLibCore.getVersion()}")
+                }
+
+                override fun onError(code: Int, msg: String) {
+                    LogDebug.d(TAG, "initLibCore onError,code:$code,msg:$msg")
+                }
+            })
         mkdirsFolders()
     }
 
