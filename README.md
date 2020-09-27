@@ -26,7 +26,7 @@ aar中使用的kotlin版本：1.3.41。<br>
 在gradle中添加四个aar和相关源的引用，具体见demo；<br>
 在使用前需要对lib进行初始化，具体代码见第二章。<br>
 注1:关于四个aar文件：<br>
-libsiasuncore-release.aar为核心库aar；<br>
+libcore-release.aar为核心库aar；<br>
 locktableview-release.aar为显示Excel和表格的控件的aar；<br>
 photoview-release.aar为可缩放图片的控件的aar；<br>
 filepicker-debug.aar为文浏览器的aar；<br>
