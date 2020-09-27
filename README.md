@@ -515,7 +515,7 @@ fun deleteFile(path: String, keyWord: String): Boolean<br>
 -------|-------|-------
 path|String|查找文件的路径
 keyWord|String|查找文件关键字
-返回值|FileSearchBean|返回类型，删除结果<br>true：删除成功<br>false：删除失败<br>
+返回值|Boolean|返回类型，删除结果<br>true：删除成功<br>false：删除失败<br>
 
 ### 6.3.5 拆分文件路径名称和类型<br>
 将文件路径+名称拆分成路径，名称和类别，例如传入“/sdcard/folder/test.docx”<br>
