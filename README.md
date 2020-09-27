@@ -495,7 +495,8 @@ fun findFileByPath(path: String): FileSearchBean<br>
 -------|-------|-------
 path|String|查找文件的路径
 fileType|String|查找文件的类型
-返回值|FileSearchBean|返回类型，通过code判断查找结果<br>200：查找成功，fileBeans为查找文件的结果<br>300：目录为空<br>400：目录不存在<br>
+返回值|FileSearchBean|返回类型，通过code判断查找结果<br>200：查找成功，fileBeans为查找文件的结果<br>300：目录为空<br>400：目录不存在
+
 注：虽然此方法不会查找子目录中的文件，但是目录也会在返回结果fileBeans中返回，可以判断isDirectory参数，如果为true，再次调用此方法查找子目录的文件。<br>
 
 ### 6.3.3 按关键字查找指定目录的文件<br>
