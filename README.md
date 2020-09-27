@@ -546,7 +546,7 @@ setToastSwitch|flag: Boolean|ToastUtil.setToastSwitch(false)
 # 8. 其他功能<br>
 在本章对aar里的其他小功能模块进行说明，并提供相应的使用方法。<br>
 ## 8.1 快速点击功能<br>
-此功能主要用于判断按钮点击速度，在短时间快速点击时不进行相应操作。静态类名FastClick，类中提供三个静态变量，具体如下：<br>
+此模块(FastClick)主要用于判断按钮点击速度，在短时间快速点击时不进行相应操作。静态类名FastClick，类中提供三个静态变量，具体如下：<br>
 参数名称|返回值|说明
 -------|-------|-------
 isFastDoubleClick|Boolean|是否快速点击，间隔800ms内点击返回true，超过800ms点击返回false
@@ -554,7 +554,7 @@ isLongDoubleClick|Boolean|是否快速点击，间隔2s内点击返回true，超
 isCustomDoubleClick|Boolean|自定义点击时间，默认1s，使用前可以使用setCustom(mCustomTime:Long)设置判断时间
 
 ## 8.2 获取格式化时间<br>
-此模块GetTimeString，用于通过系统时间获得格式化的时间，具体有如下几个：<br>
+此模块(GetTimeString)用于通过系统时间获得格式化的时间，具体有如下几个：<br>
 参数名称|格式|返回类型|说明
 -------|-------|-------|-------
 timeStamp|yyyyMMddHHmmss|String|yyyy年，MM月，dd日期，HH时，mm分，ss秒，下同
